@@ -1,0 +1,21 @@
+<Level1 values="{{values}}" />
+
+<button on:click="change()">change nested components</button>
+
+<script>
+	import Level1 from './Level1.html';
+	
+	export default {
+		data() {
+			return { values: [1, 2, 3, 4] }
+		},
+		components: {
+			Level1
+		},
+		methods: {
+			change() {
+				this.set({ values: [2, 3] })
+			}
+		}
+	}
+</script>
