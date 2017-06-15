@@ -1,20 +1,26 @@
-<Level1 values="{{values}}" />
+{{#each values as value}}
+	<Level1 condition="{{value % 2}}">
+		<Level2 />
+	</Level1>
+{{/each}}
 
 <button on:click="change()">change nested components</button>
 
 <script>
 	import Level1 from './Level1.html';
+	import Level2 from './Level2.html';
 	
 	export default {
 		data() {
-			return { values: [1, 2, 3, 4] }
+			return { values: [ 1, 2 ] }
 		},
 		components: {
-			Level1
+			Level1,
+			Level2
 		},
 		methods: {
 			change() {
-				this.set({ values: [2, 3] })
+				this.set({ values: [ 2 ] })
 			}
 		}
 	}
